@@ -39,6 +39,7 @@ See the [TCP Streaming API docs][api-docs] for exactly that
 
 ## TODO
 
+* Buffer for the JSON
 * Reconnections
 * Other Methods GET ETC
 * Finish off Tests

@@ -45,6 +45,7 @@ module.exports = class Connection extends EventEmitter
   
   processData: (data) ->
     data = data.toString('utf8')
+    console.log(data)
     try
       json = JSON.parse(data)
       request = @requests[json.token]
