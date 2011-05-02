@@ -1,6 +1,6 @@
 # pachube-stream
 
-Creates a streaming TCP connection with pachube TCP API SERVER
+A streaming TCP client for the pachube TCP Server
 
 ## Installation
 
