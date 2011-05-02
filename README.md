@@ -24,12 +24,12 @@ See the [TCP Streaming API docs][api-docs] for exactly that
   
   {Connection} = require("pachube-stream")
 
-  @con = new Connection("Your API KEY")
+  conn = new Connection("Your API KEY")
 
-  @con.on "error", (error) ->
+  conn.on "error", (error) ->
     console.log(error)
 
-  subscription = @con.subscribe("/feeds/7049")
+  subscription = conn.subscribe("/feeds/7049")
 
   subscription.on "complete", (data) ->
     console.log(data)
