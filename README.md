@@ -22,20 +22,20 @@ See the [TCP Streaming API docs][api-docs] for exactly that
 
 ## Usage (coffee)
   
-  {Connection} = require("pachube-stream")
+    {Connection} = require("pachube-stream")
 
-  conn = new Connection("Your API KEY")
+    conn = new Connection("Your API KEY")
 
-  conn.on "error", (error) ->
-    console.log(error)
+    conn.on "error", (error) ->
+      console.log(error)
 
-  subscription = conn.subscribe("/feeds/7049")
+    subscription = conn.subscribe("/feeds/7049")
 
-  subscription.on "complete", (data) ->
-    console.log(data)
+    subscription.on "complete", (data) ->
+      console.log(data)
 
-  subscription.on "data", (data) ->
-    console.log(data)
+    subscription.on "data", (data) ->
+      console.log(data)
 
 ## TODO
 
