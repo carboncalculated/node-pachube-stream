@@ -1,9 +1,8 @@
 uuid = require('node-uuid')
 {EventEmitter} = require "events"
-
 module.exports = class HttpJsonRequest extends EventEmitter
   
-  constructor: (@apiKey, @method, @resource, @params = {}, @headers = {}) ->
+  constructor: (@apiKey, @method, @resource, @body = null, @params = {}, @headers = {}) ->
     @headers["X-PachubeApiKey"] = @apiKey
     @token = "#{@method}:#{uuid()}"
   
@@ -18,7 +17,7 @@ module.exports = class HttpJsonRequest extends EventEmitter
   # The HTTP JSON request to be sent to Pachube
   json: ->
     JSON.stringify(@requestObject())
-    
+      
   emitEvent: (json) ->
     if json.body
       @emit("data", json)

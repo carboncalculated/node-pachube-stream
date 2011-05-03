@@ -1,7 +1,7 @@
 net = require "net"
 {EventEmitter} = require "events"
 HttpJsonRequest = require "./http_json_request"
-
+Parser = require "./parser"
 module.exports = class Connection extends EventEmitter
   
   constructor: (@apiKey, @options = {}) ->
@@ -9,6 +9,13 @@ module.exports = class Connection extends EventEmitter
     @port = @options.port || 8081
     @conn = net.createConnection(@port, @host)
     @requests = {}
+    
+    @parser = new Parser()
+    @parser.on "object", (json) =>
+      @processData(json)
+      
+    @parser.on "error", (error) =>
+      @emit("error", error)
     
     @conn.on "connect", =>
       @emit "connect"
@@ -21,8 +28,8 @@ module.exports = class Connection extends EventEmitter
       @emit "error", error
 
     @conn.on 'data', (data) =>
-      @processData(data)
-  
+      @parser.receive(data)
+    
   subscribe: (resource, params = {}, headers = {}) ->
     @sendRequest(new HttpJsonRequest(@apiKey, "subscribe", resource, params, headers))
     
@@ -42,13 +49,9 @@ module.exports = class Connection extends EventEmitter
     @requests[request.token] = request
     @conn.write(request.json())
     request
-  
-  processData: (data) ->
-    data = data.toString('utf8')
-    console.log(data)
-    try
-      json = JSON.parse(data)
-      request = @requests[json.token]
-      request.emitEvent(json)
-    catch error
-      @emit("error", error)
+    
+  processData: (json) ->      
+    request = @requests[json.token]
+    request.emitEvent(json)
+    
+    

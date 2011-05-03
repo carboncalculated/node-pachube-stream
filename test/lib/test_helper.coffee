@@ -16,15 +16,14 @@ exports.fakeServer = fakeServer = (fixture)->
             fs.readFile fixturePath("feeds_256.json"), (error, data) ->
               response = JSON.parse(data)
               response["token"] = json.token
-              connection.write(JSON.stringify(response))
-              
+              connection.write("#{JSON.stringify(response)}\n")              
             setTimeout ->
               fs.readFile fixturePath("feeds_256_data.json"), (error, data) ->
                 response = JSON.parse(data)
                 response["token"] = json.token
-                connection.write(JSON.stringify(response))
+                connection.write("#{JSON.stringify(response)}\n")
             ,1000
             
-  server.listen(9121, "localhost")  
+  server.listen(9001, "localhost")  
   server
   

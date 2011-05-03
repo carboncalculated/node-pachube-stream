@@ -1,6 +1,1 @@
-{ 
-  body: 'Forbidden: You are not authorized',
-  resource: '/feeds/504',
-  token: 'subscribe:35065C7C-DB48-42F5-B659-9825468CE875',
-  status: 403 
-}
+{"body":"Forbidden: You are not authorized","resource":"/feeds/256","token":"subscribe:C3C2170D-E61E-4CDC-B4B5-9E5D91F564C2","status":403}
