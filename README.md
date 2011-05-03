@@ -6,7 +6,7 @@ A streaming TCP client for the pachube TCP Server
 
 Use NPM:
 
-    npm install pachube-stream # I have not push to NPM yet so you cannot do this yet
+    npm install pachube-stream
 
 Otherwise just use npm to link yourself
     
@@ -42,7 +42,6 @@ See the [TCP Streaming API docs][api-docs] for exactly that
 * Reconnections
 * Other Methods GET ETC
 * Finish off Tests
-* Push to NPM
 
 ## Note on Patches/Pull Requests (Standard)
  
