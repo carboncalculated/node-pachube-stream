@@ -32,6 +32,9 @@ module.exports = class Connection extends EventEmitter
     
   subscribe: (resource, params = {}, headers = {}) ->
     @sendRequest(new HttpJsonRequest(@apiKey, "subscribe", resource, params, headers))
+  
+  unsubscribe: (resource, params = {}, headers = {}) ->
+    @sendRequest(new HttpJsonRequest(@apiKey, "unsubscribe", resource, params, headers))
     
   get: (resource, params = {}, headers = {}) ->
     @sendRequest(new HttpJsonRequest(@apiKey, "get", resource, params, headers))
@@ -43,6 +46,9 @@ module.exports = class Connection extends EventEmitter
     @sendRequest(new HttpJsonRequest(@apiKey, "put", resource, params, headers))
     
   delete: (resource, params = {}, headers = {}) ->
+    @sendRequest(new HttpJsonRequest(@apiKey, "delete", resource, params, headers))
+    
+  unsubscribe: (resource, params = {}, headers = {}) ->
     @sendRequest(new HttpJsonRequest(@apiKey, "delete", resource, params, headers))
 
   sendRequest: (request) ->

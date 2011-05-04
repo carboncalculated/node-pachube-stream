@@ -1,7 +1,7 @@
 {
   "name": "pachube-stream",
   "description": "Client For the Pachube TCP Stream API",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Richard Hooker <hookercookerman@gmail.com>",
   "main": "./lib/pachube-stream/index.js",
   "repository":{ 
