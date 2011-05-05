@@ -47,9 +47,6 @@ module.exports = class Connection extends EventEmitter
     
   delete: (resource, params = {}, headers = {}) ->
     @sendRequest(new HttpJsonRequest(@apiKey, "delete", resource, params, headers))
-    
-  unsubscribe: (resource, params = {}, headers = {}) ->
-    @sendRequest(new HttpJsonRequest(@apiKey, "delete", resource, params, headers))
 
   sendRequest: (request) ->
     @requests[request.token] = request
