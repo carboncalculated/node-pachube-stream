@@ -23,7 +23,7 @@ exports.fakeServer = fakeServer = (fixture)->
                 response["token"] = json.token
                 connection.write("#{JSON.stringify(response)}\n")
             ,1000
-            
+               
   server.listen(9001, "localhost")  
   server
   
