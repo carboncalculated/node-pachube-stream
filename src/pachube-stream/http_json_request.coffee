@@ -3,7 +3,7 @@ uuid = require('node-uuid')
 module.exports = class HttpJsonRequest extends EventEmitter
   
   constructor: (@apiKey, @method, @resource, @body = null, @params = {}, @headers = {}) ->
-    @headers["X-PachubeApiKey"] = @apiKey
+    @headers["X-PachubeApiKey"] ||= @apiKey
     @token = "#{@method}:#{uuid()}"
   
   requestObject: ->
