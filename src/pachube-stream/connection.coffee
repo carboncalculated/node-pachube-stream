@@ -33,19 +33,19 @@ module.exports = class Connection extends EventEmitter
       @parser.receive(data)
     
   subscribe: (resource, params = {}, headers = {}) ->
-    @sendRequest(new HttpJsonRequest(@apiKey, "subscribe", resource, params, headers))
+    @sendRequest(new HttpJsonRequest(@apiKey, "subscribe", resource, {}, params, headers))
   
   unsubscribe: (resource, params = {}, headers = {}) ->
-    @sendRequest(new HttpJsonRequest(@apiKey, "unsubscribe", resource, params, headers))
+    @sendRequest(new HttpJsonRequest(@apiKey, "unsubscribe", resource, {}, params, headers))
     
   get: (resource, params = {}, headers = {}) ->
-    @sendRequest(new HttpJsonRequest(@apiKey, "get", resource, params, headers))
+    @sendRequest(new HttpJsonRequest(@apiKey, "get", resource, {}, params, headers))
     
-  post: (resource, params = {}, headers = {}) ->
-    @sendRequest(new HttpJsonRequest(@apiKey, "post", resource, params, headers))
+  post: (resource, body = {}, params = {}, headers = {}) ->
+    @sendRequest(new HttpJsonRequest(@apiKey, "post", resource, body, params, headers))
 
-  put: (resource, params = {}, headers = {}) ->
-    @sendRequest(new HttpJsonRequest(@apiKey, "put", resource, params, headers))
+  put: (resource, body = {}, params = {}, headers = {}) ->
+    @sendRequest(new HttpJsonRequest(@apiKey, "put", resource, body, params, headers))
     
   delete: (resource, params = {}, headers = {}) ->
     @sendRequest(new HttpJsonRequest(@apiKey, "delete", resource, params, headers))

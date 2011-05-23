@@ -13,6 +13,7 @@ module.exports = class HttpJsonRequest extends EventEmitter
       "body" : @body if @body
       "headers" : @headers
       "token" : @token
+      "params" : @params
     
   # The HTTP JSON request to be sent to Pachube
   json: ->
